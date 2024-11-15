@@ -28,7 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cucumber": "npx cucumber-js --exit",
-    "cucumber:parallel": "npx cucumber-js --parallel 2 --exit"
+    "cucumber:parallel": "npx cucumber-js --parallel 1 --exit"
   },
   "eslintConfig": {
     "extends": [

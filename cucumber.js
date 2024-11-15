@@ -8,8 +8,6 @@ require('ts-node').register({
       baseUrl: './',
       target: 'es5',
       jsx: 'react',
-      paths: {
-      },
       allowJs: true,
       noEmit: false,
       noEmitOnError: false,
@@ -35,7 +33,6 @@ require('ts-node').register({
     //'--parallel 2',
   module.exports = {
     default: [
-      '--publish-quiet',
       ...FAIL_FAST,
       `--format ${FORMAT}`,
       `--format-options ${FORMAT_OPTIONS}`,

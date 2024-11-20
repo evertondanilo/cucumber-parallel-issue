@@ -115,3 +115,13 @@ npm run cucumber
 8 steps (8 passed)
 0m00.105s (executing steps: 0m00.080s)
 ```
+
+## FIX :)
+Fix from @davidjgoss:
+https://github.com/cucumber/cucumber-js/issues/2444#issuecomment-2486667606
+
+Thanks for including the repro project @evertondanilo, that was really helpful.
+
+I raised a PR on your repo with the fix evertondanilo/cucumber-parallel-issue#1 - the issue was that the ts-node transpiler was registered in your configuration file. This file is only loaded in the parent/coordinator process, but is not loaded again in the child processes that get spawned for doing parallel execution. Moving this stuff to its own file and including it via the --require-module option makes it work consistently, as this gets done the same way on the coordinator and child processes.
+
+I'll close this issue now, but will try to add some more explicit advice to the docs around this kind of thing.
